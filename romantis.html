@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menebak Si Dia</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: rgba(135, 206, 250, 0.8);
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            border-bottom: 2px solid #1e90ff;
+        }
+        .hero {
+            padding: 50px 20px;
+        }
+        .hero h1 {
+            font-size: 3em;
+            color: #1e90ff;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+        .button {
+            background: #1e90ff;
+            color: #fff;
+            padding: 15px 30px;
+            margin-top: 20px;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #4682b4;
+        }
+        .quiz {
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .quiz label {
+            display: block;
+            margin: 10px 0;
+        }
+        .quiz button {
+            background: #1e90ff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .quiz button:hover {
+            background: #4682b4;
+        }
+        footer {
+            background: rgba(135, 206, 250, 0.8);
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.9em;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>Menebak Si Dia</header>
+    <div class="hero">
+        <h1>Apakah Kamu Tahu Siapa yang Aku Suka?</h1>
+        <p>Selamat datang di permainan sederhana ini! Jawab beberapa pertanyaan untuk mencoba menebak siapa dia. Mungkin kamu akan terkejut dengan hasilnya!</p>
+    </div>
+    <div class="quiz">
+        <form id="guessForm">
+            <label for="question1">1. siapa nama nya ?</label>
+            <input type="text" id="question1" name="question1" required>
+
+            <label for="question2">2. Apa hobinya?</label>
+            <input type="text" id="question2" name="question2" required>
+
+            <label for="question3">3. Hal apa yang membuatnya selalu tersenyum?</label>
+            <input type="text" id="question3" name="question3" required>
+
+            <button type="submit">Cek Jawaban</button>
+        </form>
+        <p id="result" style="margin-top: 20px; font-weight: bold; color: #1e90ff;"></p>
+    </div>
+    <footer>&copy; 2024 - Dibuat dengan Rasa Penasaran</footer>
+
+    <script>
+        document.getElementById('guessForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const question1 = document.getElementById('question1').value.toLowerCase();
+            const question2 = document.getElementById('question2').value.toLowerCase();
+            const question3 = document.getElementById('question3').value.toLowerCase();
+
+            const correctAnswers = {
+                question1: 'zaza', // Ubah sesuai jawaban yang benar
+                question2: 'voli', // Ubah sesuai jawaban yang benar
+                question3: 'kamu' // Ubah sesuai jawaban yang benar
+            };
+
+            let score = 0;
+            if (question1 === correctAnswers.question1) score++;
+            if (question2 === correctAnswers.question2) score++;
+            if (question3 === correctAnswers.question3) score++;
+
+            const resultMessage = score === 3
+                ? 'Kamu berhasil! Kamu tahu siapa dia!'
+                : `Kamu hanya menjawab ${score} dari 3 dengan benar. Coba lagi!`;
+
+            document.getElementById('result').textContent = resultMessage;
+        });
+    </script>
+</body>
+</html>
